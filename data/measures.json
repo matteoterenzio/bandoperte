@@ -1,5 +1,5 @@
 {
-  "name": "Bandi Italia – dataset base",
+  "name": "Bandi Italia – dataset auto",
   "updated": "2025-08-12",
   "measures": [
     {
@@ -16,7 +16,6 @@
       },
       "check": [
         "Documento identità e CF",
-        "Curriculum e requisiti",
         "Business plan e preventivi",
         "Certificazioni (crateri/isole)",
         "Dichiarazione rapporto di lavoro"
@@ -76,30 +75,6 @@
       }
     },
     {
-      "id": "fondo-garanzia",
-      "name": "Fondo di Garanzia PMI (MCC)",
-      "scoreBase": 55,
-      "tags": [
-        "Garanzia",
-        "PMI"
-      ],
-      "rules": {
-        "stato": [
-          "PMI"
-        ],
-        "importoMin": 1000
-      },
-      "check": [
-        "Bilanci/visure (se disponibili)",
-        "Modulo richiesta garanzia",
-        "Delibera banca"
-      ],
-      "official": {
-        "title": "MIMIT/MCC",
-        "url": "https://www.fondidigaranzia.it/"
-      }
-    },
-    {
       "id": "on-nuove-imprese",
       "name": "ON – Oltre Nuove Imprese a Tasso Zero",
       "scoreBase": 57,
@@ -149,96 +124,6 @@
       "official": {
         "title": "Invitalia",
         "url": "https://www.invitalia.it/cosa-facciamo/sosteniamo-le-imprese/smartstart-italia"
-      }
-    },
-    {
-      "id": "fiere-internazionali",
-      "name": "Fiere internazionali – contributi per export",
-      "scoreBase": 52,
-      "tags": [
-        "Export",
-        "Internazionalizzazione"
-      ],
-      "rules": {
-        "export": true,
-        "importoMin": 2000
-      },
-      "check": [
-        "Iscrizione fiera",
-        "Piano export",
-        "Preventivi stand/viaggio"
-      ],
-      "official": {
-        "title": "MAECI/ICE/Regioni",
-        "url": "https://www.ice.it/"
-      }
-    },
-    {
-      "id": "transizione-4-0",
-      "name": "Credito d'imposta – Beni 4.0 (Transizione)",
-      "scoreBase": 59,
-      "tags": [
-        "4.0",
-        "Innovazione",
-        "Investimenti"
-      ],
-      "rules": {
-        "t40": true,
-        "importoMin": 1000
-      },
-      "check": [
-        "Interconnessione e perizia 4.0",
-        "Fatture e schede tecniche",
-        "Piano investimenti"
-      ],
-      "official": {
-        "title": "MIMIT",
-        "url": "https://www.mimit.gov.it/"
-      }
-    },
-    {
-      "id": "turismo",
-      "name": "Turismo – incentivi strutture ricettive",
-      "scoreBase": 53,
-      "tags": [
-        "Turismo",
-        "Investimenti",
-        "Green"
-      ],
-      "rules": {
-        "turismo": true,
-        "importoMin": 10000
-      },
-      "check": [
-        "Titolo disponibilità immobile",
-        "Progetto lavori",
-        "Documenti ambientali"
-      ],
-      "official": {
-        "title": "MiTur/Invitalia",
-        "url": "https://www.ministeroturismo.gov.it/"
-      }
-    },
-    {
-      "id": "agricoltura-giovani",
-      "name": "Agricoltura – giovani (insediamento)",
-      "scoreBase": 54,
-      "tags": [
-        "Agricoltura",
-        "Under40"
-      ],
-      "rules": {
-        "agri": true,
-        "etaMax": 40
-      },
-      "check": [
-        "Piano aziendale agricolo",
-        "Titoli/terreni",
-        "Requisiti anagrafici"
-      ],
-      "official": {
-        "title": "PSR/ISMEA",
-        "url": "https://www.ismea.it/"
       }
     }
   ]
