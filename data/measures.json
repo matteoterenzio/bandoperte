@@ -21,9 +21,15 @@
         "Dichiarazione rapporto di lavoro"
       ],
       "official": {
-        "title": "Invitalia",
+        "title": "Resto al Sud",
         "url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud"
-      }
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud",
+      "last_seen": "2025-08-12",
+      "evergreen": true
     },
     {
       "id": "nuova-sabatini",
@@ -47,9 +53,44 @@
         "Prospetto investimenti"
       ],
       "official": {
-        "title": "MIMIT",
+        "title": "Beni Strumentali ",
         "url": "https://www.mimit.gov.it/it/incentivi/agevolazioni-per-gli-investimenti-delle-pmi-in-beni-strumentali-nuova-sabatini"
-      }
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.mimit.gov.it/it/incentivi/agevolazioni-per-gli-investimenti-delle-pmi-in-beni-strumentali-nuova-sabatini",
+      "last_seen": "2025-08-12",
+      "evergreen": true
+    },
+    {
+      "id": "transizione-4-0",
+      "name": "Credito d'imposta – Beni 4.0 (Transizione)",
+      "scoreBase": 59,
+      "tags": [
+        "4.0",
+        "Innovazione",
+        "Investimenti"
+      ],
+      "rules": {
+        "t40": true,
+        "importoMin": 1000
+      },
+      "check": [
+        "Interconnessione e perizia 4.0",
+        "Fatture e schede tecniche",
+        "Piano investimenti"
+      ],
+      "official": {
+        "title": "Credito d'imposta ",
+        "url": "https://www.mimit.gov.it/"
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.mimit.gov.it/",
+      "last_seen": "2025-08-12",
+      "evergreen": true
     },
     {
       "id": "zes-unica",
@@ -70,9 +111,15 @@
         "Impegni 5 anni"
       ],
       "official": {
-        "title": "Agenzia Entrate",
+        "title": "Credito d'imposta ZES Unica Mezzogiorno",
         "url": "https://www.agenziaentrate.gov.it/portale/credito-imposta-per-investimenti-in-zes-unica/infogen-credito-imposta-per-investimenti-in-zes-unica-imprese"
-      }
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.agenziaentrate.gov.it/portale/credito-imposta-per-investimenti-in-zes-unica/infogen-credito-imposta-per-investimenti-in-zes-unica-imprese",
+      "last_seen": "2025-08-12",
+      "evergreen": true
     },
     {
       "id": "on-nuove-imprese",
@@ -96,9 +143,15 @@
         "Dichiarazioni PMI"
       ],
       "official": {
-        "title": "Invitalia",
+        "title": "ON ",
         "url": "https://www.invitalia.it/cosa-facciamo/creiamo-nuove-aziende/nuove-imprese-a-tasso-zero"
-      }
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.invitalia.it/cosa-facciamo/creiamo-nuove-aziende/nuove-imprese-a-tasso-zero",
+      "last_seen": "2025-08-12",
+      "evergreen": false
     },
     {
       "id": "smart-start",
@@ -122,9 +175,71 @@
         "Preventivi R&S"
       ],
       "official": {
-        "title": "Invitalia",
+        "title": "Smart&Start Italia",
         "url": "https://www.invitalia.it/cosa-facciamo/sosteniamo-le-imprese/smartstart-italia"
-      }
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.invitalia.it/cosa-facciamo/sosteniamo-le-imprese/smartstart-italia",
+      "last_seen": "2025-08-12",
+      "evergreen": true
+    },
+    {
+      "id": "agricoltura-giovani",
+      "name": "Agricoltura – giovani (insediamento)",
+      "scoreBase": 54,
+      "tags": [
+        "Agricoltura",
+        "Under40"
+      ],
+      "rules": {
+        "agri": true,
+        "etaMax": 40
+      },
+      "check": [
+        "Piano aziendale agricolo",
+        "Titoli/terreni",
+        "Requisiti anagrafici"
+      ],
+      "official": {
+        "title": "Agricoltura ",
+        "url": "https://www.ismea.it/"
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.ismea.it/",
+      "last_seen": "2025-08-12",
+      "evergreen": false
+    },
+    {
+      "id": "fiere-internazionali",
+      "name": "Fiere internazionali – contributi per export",
+      "scoreBase": 52,
+      "tags": [
+        "Export",
+        "Internazionalizzazione"
+      ],
+      "rules": {
+        "export": true,
+        "importoMin": 2000
+      },
+      "check": [
+        "Iscrizione fiera",
+        "Piano export",
+        "Preventivi stand/viaggio"
+      ],
+      "official": {
+        "title": "Fiere internazionali ",
+        "url": "https://www.ice.it/it/fiere"
+      },
+      "status": "aperto",
+      "opened": null,
+      "deadline": null,
+      "source_url": "https://www.ice.it/it/fiere",
+      "last_seen": "2025-08-12",
+      "evergreen": false
     }
   ]
 }
