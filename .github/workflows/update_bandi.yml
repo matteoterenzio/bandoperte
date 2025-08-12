@@ -1,0 +1,42 @@
+name: Aggiorna bandi (giornaliero)
+
+on:
+  schedule:
+    - cron: '25 4 * * *'   # ogni giorno ~06:25 ora italiana (UTC+1/+2)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-bandi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Genera data/measures.json
+        run: |
+          python scripts/fetch_bandi.py
+
+      - name: Commit & push se ci sono cambi
+        run: |
+          git config user.name "BandoPerTe Bot"
+          git config user.email "bot@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain data/measures.json)" ]]; then
+            git add data/measures.json
+            git commit -m "Update measures.json (auto)"
+            git push
+          else
+            echo "Nessun cambiamento"
+          fi
