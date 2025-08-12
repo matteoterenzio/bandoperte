@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>BandoPerTe – Advisor (Auto, Netlify)</title>
+<style>
+:root{--bg:#0f172a;--panel:#0b1229;--card:#101b3a;--muted:#93a4c3;--text:#e7eefc;--line:#1f2b4a}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1023,#0b122a 40%,#0e162f);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+header{position:sticky;top:0;background:rgba(11,18,42,.75);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:20}
+.container{max-width:1100px;margin:0 auto;padding:14px}
+.h1{font-weight:800;font-size:clamp(20px,2.6vw,28px)}
+.grid{display:grid;gap:14px}@media(min-width:980px){.cols-2{grid-template-columns:1fr 1fr}}
+.card{background:linear-gradient(180deg,#0f1b3a,#0c1631);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:#0a1124;color:#e7eefc;padding:10px 12px;border-radius:12px;cursor:pointer}
+.btn.primary{background:linear-gradient(180deg,#16a34a,#0ea5e9)}
+select,input,textarea{width:100%;border:1px solid var(--line);background:#0a1124;color:#e7eefc;border-radius:12px;padding:8px 10px}
+.badge{background:#13203d;border:1px solid #27406f;border-radius:999px;padding:3px 8px;font-size:12px}
+.pill{border:1px dashed #335;border-radius:999px;padding:4px 10px;color:#bcd3ff;font-size:12px}
+.muted{color:#93a4c3}.sep{height:1px;background:#1f2b4a;margin:10px 0}.small{font-size:12px}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#0c1429;border:1px solid #244;box-shadow:0 8px 30px rgba(0,0,0,.4);padding:10px 14px;border-radius:10px;color:#cbe4ff;font-size:13px;z-index:50}
+@media print{header,.noprint{display:none!important}.card{border:none;box-shadow:none}}
+a{color:#bcd3ff}
+</style>
+</head>
+<body>
+<header>
+  <div class="container row" style="justify-content:space-between">
+    <div class="h1">BandoPerTe – <span class="badge">Auto (Netlify)</span></div>
+    <div class="row noprint">
+      <button class="btn primary" id="startWizard">Percorso guidato</button>
+      <button class="btn" id="btnRefresh">Aggiorna dataset</button>
+      <button class="btn" id="btnForce">Forza aggiornamento (server)</button>
+      <button class="btn" id="btnPrint">Stampa/Salva PDF</button>
+    </div>
+  </div>
+</header>
+<main class="container grid cols-2">
+  <section class="card">
+    <div class="row" style="justify-content:space-between">
+      <h2 style="margin:0">Profilo</h2>
+      <div class="pill">Dataset: <span id="dsName">server</span> · <span id="dsDate">—</span></div>
+    </div>
+    <div class="grid">
+      <div><label>Età</label><input type="number" id="eta" min="16" max="80" placeholder="es. 44"></div>
+      <div><label>Regione</label><select id="regione"><option value="">Seleziona…</option><option>Abruzzo</option><option>Basilicata</option><option>Calabria</option><option>Campania</option><option>Molise</option><option>Puglia</option><option>Sardegna</option><option>Sicilia</option><option>Altro</option></select></div>
+      <div><label>Comune</label><input id="comune" placeholder="es. Pescara"></div>
+      <div class="row"><label><input type="checkbox" id="crateri"> Crateri sismici 2016</label><label><input type="checkbox" id="isole"> Isole minori/lagunari</label><label><input type="checkbox" id="areazes"> In ZES unica</label></div>
+      <div><label>Occupazione</label><select id="occupazione"><option value="">Seleziona…</option><option>Autonomo/Professionista</option><option>Dipendente TI</option><option>Disoccupato</option><option>Studente/NEET</option></select></div>
+      <div class="row"><label><input type="checkbox" id="piva"> Partita IVA</label><label><input type="checkbox" id="iva12"> IVA movimentata 12 mesi</label></div>
+    </div>
+    <div class="sep"></div>
+    <h2 style="margin:0">Impresa & Progetto</h2>
+    <div class="grid">
+      <div><label>Stato impresa</label><select id="stato"><option value="">Seleziona…</option><option>Costituenda</option><option>Startup innovativa</option><option>PMI</option></select></div>
+      <div><label>Forma giuridica</label><select id="forma"><option value="">Seleziona…</option><option>Ditta individuale</option><option>SRL</option><option>SRLS</option><option>Cooperativa</option><option>Altro</option></select></div>
+      <div><label>Settore</label><select id="settore"><option value="">Seleziona…</option><option>Commercio</option><option>Servizi</option><option>Manifattura</option><option>Agricoltura</option><option>Turismo</option></select></div>
+      <div><label>Dimensione</label><select id="dimensione"><option value="">Seleziona…</option><option>Micro</option><option>Piccola</option><option>Media</option></select></div>
+      <div><label>Importo investimento (€)</label><input type="number" id="importo" min="0" step="100"></div>
+      <div class="row"><label><input type="checkbox" id="beni"> Beni strumentali</label><label><input type="checkbox" id="immobili"> Immobili/terreni</label><label><input type="checkbox" id="t40"> Tecnologie 4.0</label><label><input type="checkbox" id="green"> Green/risparmio</label></div>
+      <div class="row"><label><input type="checkbox" id="export"> Export/Fiere</label><label><input type="checkbox" id="ecomm"> E-commerce estero</label><label><input type="checkbox" id="ricerca"> R&S/Innovazione</label></div>
+      <div class="row"><label><input type="checkbox" id="turismo"> Turismo</label><label><input type="checkbox" id="agri"> Agricoltura</label></div>
+    </div>
+    <div class="sep"></div>
+    <h2 style="margin:0">Compagine</h2>
+    <div class="grid">
+      <div><label>Soci totali</label><input type="number" id="soci" min="1" step="1"></div>
+      <div><label>Donne</label><input type="number" id="donne" min="0" step="1"></div>
+      <div><label>Under 36</label><input type="number" id="under" min="0" step="1"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <h2 style="margin:0">Suggerimenti</h2>
+      <span class="pill">Dati lato server</span>
+    </div>
+    <div id="top3"></div>
+    <div class="sep"></div>
+    <h3 style="margin:0 0 6px">Checklist documentale</h3>
+    <ul id="checklist"></ul>
+  </section>
+
+  <section class="card noprint">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <h2 style="margin:0">Percorso guidato (30 domande)</h2>
+      <span class="pill" id="stepInfo">chiuso</span>
+    </div>
+    <div id="wizard" class="small muted">Clicca "Percorso guidato" per iniziare.</div>
+  </section>
+</main>
+
+<div class="toast" id="toast" style="display:none"></div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s);
+  const fields=['eta','regione','comune','crateri','isole','areazes','occupazione','piva','iva12','stato','forma','settore','dimensione','importo','beni','immobili','t40','green','export','ecomm','ricerca','turismo','agri','soci','donne','under'];
+  const els={}; fields.forEach(id=>els[id]=$('#'+id));
+  const toast=$('#toast'); const top3El=$('#top3'); const checklistEl=$('#checklist'); const dsName=$('#dsName'); const dsDate=$('#dsDate');
+
+  const CONFIG={ JSON_URL: '/.netlify/functions/measures' };
+
+  let measures=[{id:'resto-al-sud', name:'Resto al Sud', scoreBase:70, tags:['Under56','Sud/Crateri/Isole'], rules:{etaMax:55, areaSud:true}, check:['Documento identità e CF','Business plan e preventivi'], official:{title:'Invitalia',url:'https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud'}}];
+
+  function toastMsg(t){ toast.textContent=t; toast.style.display='block'; setTimeout(()=>toast.style.display='none',1600); }
+
+  async function loadDataset(){
+    try{
+      const r=await fetch(CONFIG.JSON_URL,{cache:'no-store'}); if(!r.ok) throw new Error('HTTP '+r.status);
+      const json=await r.json();
+      measures=json.measures||json;
+      dsName.textContent=json.name||'server';
+      dsDate.textContent=json.updated||new Date().toLocaleDateString();
+    }catch(e){ console.error(e); dsName.textContent='embedded'; dsDate.textContent='locale'; }
+    update();
+  }
+
+  function getData(){ const d={}; fields.forEach(k=>{const el=els[k]; if(!el) return; d[k]=(el.type==='checkbox')?el.checked:el.value;}); ['eta','importo','soci','donne','under'].forEach(k=>d[k]=parseInt(d[k]||0,10)); d.areaSud=['Abruzzo','Basilicata','Calabria','Campania','Molise','Puglia','Sardegna','Sicilia'].includes(d.regione)||d.crateri||d.isole; return d; }
+
+  function scoreMeasure(m,d){ const r=m.rules||{}; let ok=true; let bonus=0;
+    if(r.etaMax!=null && !(d.eta>=18 && d.eta<=r.etaMax)) ok=false;
+    if(r.areaSud && !d.areaSud) ok=false;
+    if(r.areazes && !d.areazes) ok=false;
+    if(r.importoMin!=null && d.importo<r.importoMin) ok=false;
+    ['beni','immobili','t40','green','export','ecomm','ricerca','turismo','agri'].forEach(k=>{ if(r[k] && !d[k]) ok=false; });
+    if(r.stato && Array.isArray(r.stato) && !r.stato.includes(d.stato)) ok=false;
+    if(!ok) return -1;
+    if(d.t40 && (m.tags||[]).join().match(/4\.0|innovazione/i)) bonus+=4;
+    if(d.green && (m.tags||[]).join().match(/green|energia|efficienza/i)) bonus+=3;
+    if(d.export && (m.tags||[]).join().match(/export|internaz/i)) bonus+=2;
+    if(d.ricerca && (m.tags||[]).join().match(/ricerca|R&S|innovazione/i)) bonus+=2;
+    return (m.scoreBase||50)+bonus;
+  }
+
+  function update(){
+    const d=getData();
+    const list=(measures||[]).map(m=>({m,score:scoreMeasure(m,d)})).filter(x=>x.score>=0).sort((a,b)=>b.score-a.score).slice(0,3);
+    if(list.length===0){ top3El.innerHTML='<div class=\"muted\">Compila i dati per vedere i bandi suggeriti.</div>'; checklistEl.innerHTML=''; return; }
+    top3El.innerHTML=list.map((x,i)=>{
+      const off=x.m.official&&x.m.official.url?`<a href=\"${x.m.official.url}\" target=\"_blank\" rel=\"noopener\" class=\"small\">Scheda ufficiale →</a>`:'<span class=\"small muted\">Scheda ufficiale →</span>';
+      const tags=(x.m.tags||[]).map(t=>`<span class=\"badge\">${t}</span>`).join(' ');
+      return `<div class=\"card\" style=\"background:#0a1124;border-color:#1f2b4a;margin:8px 0\">
+        <div class=\"row\" style=\"justify-content:space-between;align-items:center\">
+          <div><strong>${i+1}. ${x.m.name}</strong> <span class=\"badge\">${x.score}</span></div>
+          <div>${tags}</div>
+        </div>
+        <div class=\"small\" style=\"margin-top:6px\">${off}</div>
+      </div>`;
+    }).join('');
+    const set=new Set(); list.forEach(x=> (x.m.check||[]).forEach(c=>set.add(c)) );
+    checklistEl.innerHTML=Array.from(set).map(c=>`<li>${c}</li>`).join('');
+  }
+
+  // Wizard base (30 domande) - stesso approccio già visto
+  const wizardBtn=document.getElementById('startWizard'); const wizard=document.getElementById('wizard'); const stepInfo=document.getElementById('stepInfo');
+  const W=[['eta','Età'],['regione','Regione'],['comune','Comune'],['crateri','Crateri sismici (2016)'],['isole','Isole minori/lagunari'],['areazes','Impresa in ZES unica?'],['stato','Stato impresa'],['forma','Forma giuridica'],['dimensione','Dimensione'],['settore','Settore'],['importo','Importo investimento'],['beni','Beni strumentali'],['immobili','Immobili/terreni'],['t40','Tecnologie 4.0'],['green','Green/risparmio'],['export','Export/Fiere'],['ecomm','E-commerce estero'],['ricerca','R&S/Innovazione'],['turismo','Turismo'],['agri','Agricoltura'],['piva','Partita IVA'],['iva12','IVA movimentata 12 mesi'],['soci','Soci totali'],['donne','Donne in compagine'],['under','Under 36 in compagine'],['occupazione','Occupazione'],['dummy1','Esperienza > 3 anni?'],['dummy2','Ha brevetti o IP?'],['dummy3','Digitalizzazione alta?'],['dummy4','Ha rating bancario?']];
+  let wi=0;
+  function renderW(){ const [k,label]=W[wi]; stepInfo.textContent=`Passo ${wi+1} / ${W.length}`; const el=els[k]; let input='';
+    if(k.startsWith('dummy')){ input=`<label>${label}</label><div class=\"row\"><label><input type=\"radio\" name=\"${k}\" value=\"si\"> Sì</label><label><input type=\"radio\" name=\"${k}\" value=\"no\" checked> No</label></div>`; }
+    else if(el && el.tagName==='INPUT' && el.type==='checkbox'){ input=`<label><input type=\"checkbox\" id=\"w_${k}\" ${el.checked?'checked':''}> ${label}</label>`; }
+    else if(el && el.tagName==='INPUT'){ input=`<label>${label}</label><input id=\"w_${k}\" value=\"${el.value||''}\" type=\"${el.type==='number'?'number':'text'}\">`; }
+    else if(el && el.tagName==='SELECT'){ input=`<label>${label}</label><select id=\"w_${k}\">${el.innerHTML}</select>`; setTimeout(()=>{ const wsel=document.getElementById('w_'+k); if(wsel) wsel.value=el.value; },0); }
+    else { input=`<div class=\"small muted\">Domanda non disponibile.</div>`; }
+    wizard.innerHTML=`<div style=\"min-height:120px\">${input}</div><div class=\"row\" style=\"justify-content:space-between;margin-top:8px\"><button class=\"btn\" id=\"wPrev\">Indietro</button><button class=\"btn primary\" id=\"wNext\">Avanti</button></div>`;
+    document.getElementById('wPrev').onclick=()=>{ if(wi>0){ wi--; renderW(); } };
+    document.getElementById('wNext').onclick=()=>{ const w=document.getElementById('w_'+k); if(w && !k.startsWith('dummy')){ const el=els[k]; if(el){ if(el.type==='checkbox') el.checked=w.checked; else el.value=w.value; } } update(); if(wi<W.length-1){ wi++; renderW(); } else { wizard.innerHTML='<div class=\"small\">Percorso completato. Puoi stampare la Top 3.</div>'; stepInfo.textContent='chiuso'; } };
+  }
+  wizardBtn.addEventListener('click',()=>{ wi=0; renderW(); toastMsg('Percorso guidato avviato'); });
+
+  document.getElementById('btnRefresh').addEventListener('click', loadDataset);
+  document.getElementById('btnForce').addEventListener('click', async ()=>{ try{ const r=await fetch('/.netlify/functions/update-now',{method:'POST'}); if(r.ok){ toastMsg('Richiesta aggiornamento inviata'); await loadDataset(); } else { toastMsg('Errore aggiornamento'); } }catch(e){ toastMsg('Errore rete'); } });
+  document.getElementById('btnPrint').addEventListener('click', ()=>{ window.print(); });
+
+  fields.forEach(k=>{ const el=els[k]; if(!el) return; el.addEventListener('input', update); });
+
+  loadDataset();
+})();
+</script>
+</body>
+</html>
