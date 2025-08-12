@@ -1,0 +1,245 @@
+{
+  "name": "Bandi Italia – dataset base",
+  "updated": "2025-08-12",
+  "measures": [
+    {
+      "id": "resto-al-sud",
+      "name": "Resto al Sud",
+      "scoreBase": 70,
+      "tags": [
+        "Under56",
+        "Sud/Crateri/Isole"
+      ],
+      "rules": {
+        "etaMax": 55,
+        "areaSud": true
+      },
+      "check": [
+        "Documento identità e CF",
+        "Curriculum e requisiti",
+        "Business plan e preventivi",
+        "Certificazioni (crateri/isole)",
+        "Dichiarazione rapporto di lavoro"
+      ],
+      "official": {
+        "title": "Invitalia",
+        "url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud"
+      }
+    },
+    {
+      "id": "nuova-sabatini",
+      "name": "Beni Strumentali – Nuova Sabatini",
+      "scoreBase": 60,
+      "tags": [
+        "PMI",
+        "Macchinari/4.0/Green"
+      ],
+      "rules": {
+        "stato": [
+          "PMI"
+        ],
+        "beni": true,
+        "importoMin": 5000
+      },
+      "check": [
+        "Preventivi beni strumentali",
+        "Delibera finanziamento/leasing",
+        "Dichiarazioni PMI",
+        "Prospetto investimenti"
+      ],
+      "official": {
+        "title": "MIMIT",
+        "url": "https://www.mimit.gov.it/it/incentivi/agevolazioni-per-gli-investimenti-delle-pmi-in-beni-strumentali-nuova-sabatini"
+      }
+    },
+    {
+      "id": "zes-unica",
+      "name": "Credito d'imposta ZES Unica Mezzogiorno",
+      "scoreBase": 58,
+      "tags": [
+        "Sud",
+        "Investimenti"
+      ],
+      "rules": {
+        "areaSud": true,
+        "areazes": true,
+        "importoMin": 10000
+      },
+      "check": [
+        "Ubicazione in ZES",
+        "Prospetto investimenti",
+        "Impegni 5 anni"
+      ],
+      "official": {
+        "title": "Agenzia Entrate",
+        "url": "https://www.agenziaentrate.gov.it/portale/credito-imposta-per-investimenti-in-zes-unica/infogen-credito-imposta-per-investimenti-in-zes-unica-imprese"
+      }
+    },
+    {
+      "id": "fondo-garanzia",
+      "name": "Fondo di Garanzia PMI (MCC)",
+      "scoreBase": 55,
+      "tags": [
+        "Garanzia",
+        "PMI"
+      ],
+      "rules": {
+        "stato": [
+          "PMI"
+        ],
+        "importoMin": 1000
+      },
+      "check": [
+        "Bilanci/visure (se disponibili)",
+        "Modulo richiesta garanzia",
+        "Delibera banca"
+      ],
+      "official": {
+        "title": "MIMIT/MCC",
+        "url": "https://www.fondidigaranzia.it/"
+      }
+    },
+    {
+      "id": "on-nuove-imprese",
+      "name": "ON – Oltre Nuove Imprese a Tasso Zero",
+      "scoreBase": 57,
+      "tags": [
+        "Giovani/Donne",
+        "Investimenti"
+      ],
+      "rules": {
+        "stato": [
+          "Costituenda",
+          "PMI"
+        ],
+        "importoMin": 10000
+      },
+      "check": [
+        "Business plan",
+        "Dichiarazioni compagine (giovani/donne)",
+        "Preventivi",
+        "Dichiarazioni PMI"
+      ],
+      "official": {
+        "title": "Invitalia",
+        "url": "https://www.invitalia.it/cosa-facciamo/creiamo-nuove-aziende/nuove-imprese-a-tasso-zero"
+      }
+    },
+    {
+      "id": "smart-start",
+      "name": "Smart&Start Italia",
+      "scoreBase": 56,
+      "tags": [
+        "Startup innovativa",
+        "Innovazione",
+        "R&S"
+      ],
+      "rules": {
+        "stato": [
+          "Startup innovativa"
+        ],
+        "ricerca": true,
+        "importoMin": 30000
+      },
+      "check": [
+        "Business plan innovazione",
+        "Iscrizione sezione startup innovativa",
+        "Preventivi R&S"
+      ],
+      "official": {
+        "title": "Invitalia",
+        "url": "https://www.invitalia.it/cosa-facciamo/sosteniamo-le-imprese/smartstart-italia"
+      }
+    },
+    {
+      "id": "fiere-internazionali",
+      "name": "Fiere internazionali – contributi per export",
+      "scoreBase": 52,
+      "tags": [
+        "Export",
+        "Internazionalizzazione"
+      ],
+      "rules": {
+        "export": true,
+        "importoMin": 2000
+      },
+      "check": [
+        "Iscrizione fiera",
+        "Piano export",
+        "Preventivi stand/viaggio"
+      ],
+      "official": {
+        "title": "MAECI/ICE/Regioni",
+        "url": "https://www.ice.it/"
+      }
+    },
+    {
+      "id": "transizione-4-0",
+      "name": "Credito d'imposta – Beni 4.0 (Transizione)",
+      "scoreBase": 59,
+      "tags": [
+        "4.0",
+        "Innovazione",
+        "Investimenti"
+      ],
+      "rules": {
+        "t40": true,
+        "importoMin": 1000
+      },
+      "check": [
+        "Interconnessione e perizia 4.0",
+        "Fatture e schede tecniche",
+        "Piano investimenti"
+      ],
+      "official": {
+        "title": "MIMIT",
+        "url": "https://www.mimit.gov.it/"
+      }
+    },
+    {
+      "id": "turismo",
+      "name": "Turismo – incentivi strutture ricettive",
+      "scoreBase": 53,
+      "tags": [
+        "Turismo",
+        "Investimenti",
+        "Green"
+      ],
+      "rules": {
+        "turismo": true,
+        "importoMin": 10000
+      },
+      "check": [
+        "Titolo disponibilità immobile",
+        "Progetto lavori",
+        "Documenti ambientali"
+      ],
+      "official": {
+        "title": "MiTur/Invitalia",
+        "url": "https://www.ministeroturismo.gov.it/"
+      }
+    },
+    {
+      "id": "agricoltura-giovani",
+      "name": "Agricoltura – giovani (insediamento)",
+      "scoreBase": 54,
+      "tags": [
+        "Agricoltura",
+        "Under40"
+      ],
+      "rules": {
+        "agri": true,
+        "etaMax": 40
+      },
+      "check": [
+        "Piano aziendale agricolo",
+        "Titoli/terreni",
+        "Requisiti anagrafici"
+      ],
+      "official": {
+        "title": "PSR/ISMEA",
+        "url": "https://www.ismea.it/"
+      }
+    }
+  ]
+}
