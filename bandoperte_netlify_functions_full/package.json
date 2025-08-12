@@ -1,0 +1,9 @@
+{
+  "name": "bandoperte",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/functions": "^2.4.0",
+    "@netlify/blobs": "^6.5.0"
+  }
+}

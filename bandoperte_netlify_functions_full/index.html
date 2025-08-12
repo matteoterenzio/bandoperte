@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>BandoPerTe</title></head>
+<body>
+<h1>BandoPerTe – Online</h1>
+<p><button id="load">Aggiorna dataset</button></p>
+<pre id="out">Attendi…</pre>
+<script>
+document.getElementById('load').addEventListener('click', async ()=>{
+  try{
+    const r = await fetch('/.netlify/functions/measures',{cache:'no-store'});
+    document.getElementById('out').textContent = await r.text();
+  }catch(e){ document.getElementById('out').textContent = 'Errore: '+e.message; }
+});
+</script>
+</body></html>
