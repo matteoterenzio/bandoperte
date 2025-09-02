@@ -1,6 +1,6 @@
 {
   "name": "Bandi Italia – dataset auto",
-  "updated": "2025-09-01",
+  "updated": "2025-09-02",
   "measures": [
     {
       "id": "resto-al-sud",
@@ -28,7 +28,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": true
     },
     {
@@ -60,7 +60,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.mimit.gov.it/it/incentivi/agevolazioni-per-gli-investimenti-delle-pmi-in-beni-strumentali-nuova-sabatini",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": true
     },
     {
@@ -89,7 +89,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.mimit.gov.it/",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": true
     },
     {
@@ -118,7 +118,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.agenziaentrate.gov.it/portale/credito-imposta-per-investimenti-in-zes-unica/infogen-credito-imposta-per-investimenti-in-zes-unica-imprese",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": true
     },
     {
@@ -150,7 +150,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.invitalia.it/cosa-facciamo/creiamo-nuove-aziende/nuove-imprese-a-tasso-zero",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": false
     },
     {
@@ -182,7 +182,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.invitalia.it/cosa-facciamo/sosteniamo-le-imprese/smartstart-italia",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": true
     },
     {
@@ -210,7 +210,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.ismea.it/",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": false
     },
     {
@@ -238,7 +238,7 @@
       "opened": null,
       "deadline": null,
       "source_url": "https://www.ice.it/it/fiere",
-      "last_seen": "2025-09-01",
+      "last_seen": "2025-09-02",
       "evergreen": false
     }
   ]
